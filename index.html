@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sofi Vesta | EPK</title>
+  
+  <!-- Preloads for performance -->
+  <link rel="preload" href="assets/Signatra.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/35.mp4" as="video" type="video/mp4">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- SEO and Social Meta -->
+  <meta name="description" content="Sofi Vesta - Electronic music DJ blending tribal and ethnic house. From St. Petersburg's underground scene to Thailand's beach clubs.">
+  <meta property="og:title" content="Sofi Vesta | Electronic Press Kit">
+  <meta property="og:description" content="Electronic music DJ blending tribal and ethnic house sounds">
+  <meta property="og:type" content="website">
+
+  <style>
+    /* ===================== CSS CUSTOM PROPERTIES ===================== */
+    :root {
+      --primary-bg: rgba(0,0,0,0.5); /* More transparent - was 0.8 */
+      --text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      --border-radius: 10px;
+      --transition-smooth: all 0.8s ease-out;
+      --transition-fast: all 0.3s ease;
+      --content-max-width: 400px;
+      --spacing-sm: 20px;
+      --spacing-md: 40px;
+      --spacing-lg: 60px;
+    }
+
+    /* ===================== RESET & BASE ===================== */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    html { 
+      height: 100%; 
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #fff;
+      min-height: 200vh;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-bottom: var(--spacing-lg); /* Add bottom padding to entire page */
+    }
+
+    /* Prevent zoom on input focus (mobile) */
+    input, select, textarea {
+      font-size: 16px;
+    }
+
+    section { 
+      padding: var(--spacing-lg) var(--spacing-sm); 
+      text-align: center; 
+    }
+
+    /* ===================== FONTS ===================== */
+    @font-face {
+      font-family: 'MyCustomFont';
+      src: url('assets/Signatra.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ===================== HERO SECTION ===================== */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh; /* Better mobile support */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 var(--spacing-sm);
+      position: relative;
+      text-shadow: var(--text-shadow);
+    }
+
+    .hero-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero h1.logo {
+      font-family: 'MyCustomFont', 'Oswald', sans-serif;
+      font-size: clamp(3rem, 14vw, 10rem);
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      text-shadow: var(--text-shadow);
+      line-height: 1;
+      max-width: 95%;
+      white-space: nowrap;
+      word-break: normal;
+      hyphens: none;
+      will-change: transform; /* Optimize for animations */
+    }
+
+    /* ===================== SCROLL OVERLAY ===================== */
+    .scroll-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0);
+      pointer-events: none;
+      z-index: -1;
+      will-change: background;
+    }
+
+    /* ===================== CONTENT BLOCKS ===================== */
+    section.content-block { 
+      padding: 0; 
+      position: relative;
+      z-index: 2;
+    }
+    
+    .content-block {
+      max-width: var(--content-max-width);
+      width: 100%;
+      margin: var(--spacing-md) auto;
+      box-sizing: border-box;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about {
+      background: rgba(0,0,0,0.2); /* More transparent background */
+      backdrop-filter: blur(10px); /* Modern glass effect */
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      padding: var(--spacing-sm);
+      border-radius: var(--border-radius);
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .about p {
+      text-align: left; /* Left align the text */
+      text-indent: 0px; /* Indent first line */
+      /* OR use padding-left: 30px; for entire paragraph indent */
+    }
+
+    .about a {
+      color: #ff6b6b; /* Accent color for links */
+      text-decoration: underline;
+      transition: var(--transition-fast);
+    }
+
+    .about a:hover {
+      color: #ff8e8e;
+      text-shadow: 0 0 5px rgba(255, 107, 107, 0.2);
+    }
+
+    .about.content-block { 
+      padding: var(--spacing-sm); 
+    }
+
+    /* Residencies section styling */
+    .residencies h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .residencies ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .residencies li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .residencies li:last-child {
+      border-bottom: none;
+    }
+
+    .residencies .venue {
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .residencies .dates {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .residencies li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 0;
+      }
+      
+      .residencies .dates {
+        margin-left: 0;
+        margin-top: 4px;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ===================== MUSIC PLAYERS ===================== */
+    .player-wrapper {
+      width: 100%;
+      margin: 0 auto var(--spacing-md);
+      text-align: center;
+    }
+
+    .player-wrapper iframe {
+      width: 100% !important;
+      display: block;
+      border: 0;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .player-wrapper.soundcloud iframe { 
+      height: 166px; 
+    }
+    
+    .player-wrapper.mixcloud iframe { 
+      height: 120px; 
+    }
+
+    /* ===================== GALLERY ===================== */
+    .gallery-slider {
+      width: 100%;
+      max-width: var(--content-max-width);
+      aspect-ratio: 1; /* Square aspect ratio */
+      margin: 0 auto;
+      position: relative;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      overflow: hidden;
+      touch-action: pan-y; /* Better touch handling */
+    }
+
+    .gallery { 
+      padding-bottom: 80px; /* Add bottom padding */
+      position: relative; 
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Show full image without cropping */
+      object-position: center;
+      background: rgba(0,0,0,0.1); /* Subtle background for letterboxed areas */
+      loading: lazy; /* Native lazy loading */
+    }
+
+    .slide.active { 
+      opacity: 1; 
+      z-index: 1; 
+    }
+
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 2;
+      padding: 0 10px;
+    }
+
+    .slider-controls button {
+      pointer-events: all;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      width: 44px; /* Touch-friendly size */
+      height: 44px;
+      min-width: 44px; /* Ensure minimum touch target */
+      min-height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .slider-controls button:hover,
+    .slider-controls button:focus {
+      background: rgba(255,255,255,0.4);
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    .slider-controls button:active {
+      transform: scale(0.95);
+    }
+
+    /* ===================== SOCIALS ===================== */
+    .instagram-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .instagram-wrapper blockquote {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .instagram-wrapper iframe {
+      width: 100% !important;
+      border-radius: var(--border-radius);
+    }
+
+    .instagram.content-block { 
+      padding: 0; 
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: var(--spacing-sm);
+    }
+
+    .social-icons img { 
+      width: 100px; 
+      height: 100px; 
+      transition: var(--transition-fast);
+      loading: lazy;
+    }
+    
+    .social-icons img:hover { 
+      transform: scale(1.2); 
+    }
+
+    /* ===================== SCROLL ANIMATIONS ===================== */
+    .fade-in, .slide-left, .slide-right, .zoom-in { 
+      opacity: 0; 
+      transition: var(--transition-smooth); 
+      will-change: transform, opacity;
+    }
+    
+    .fade-in.show { 
+      opacity: 1; 
+    }
+    
+    .slide-left { 
+      transform: translateX(-30px); 
+    }
+    
+    .slide-left.show { 
+      transform: translateX(0); 
+      opacity: 1; 
+    }
+    
+    .slide-right { 
+      transform: translateX(30px); 
+    }
+    
+    .slide-right.show { 
+      transform: translateX(0); 
+      opacity: 1; 
+    }
+    
+    .zoom-in { 
+      transform: scale(0.95); 
+    }
+    
+    .zoom-in.show { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+
+    /* ===================== BACKGROUND VIDEO ===================== */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    /* Video fallback for unsupported formats */
+    #bg-video::-webkit-media-controls {
+      display: none !important;
+    }
+
+    /* ===================== RESPONSIVE DESIGN ===================== */
+    @media (max-width: 1024px) { 
+      .hero h1.logo { 
+        font-size: clamp(3rem, 12vw, 8rem); 
+      } 
+    }
+    
+    @media (max-width: 768px) {
+      :root {
+        --spacing-sm: 15px;
+        --spacing-md: 30px;
+        --spacing-lg: 40px;
+      }
+
+      .hero { 
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 0 var(--spacing-sm);
+      }
+      
+      .hero h1.logo { 
+        font-size: clamp(3rem, 10vw, 7rem); 
+        white-space: normal; 
+      }
+      
+      body { 
+        background-attachment: scroll; 
+        min-height: 200vh;
+      }
+      
+      body::before { 
+        display: none; 
+      }
+      
+      section { 
+        padding: var(--spacing-lg) var(--spacing-sm); 
+      }
+      
+      .content-block { 
+        margin: var(--spacing-sm) auto; 
+      }
+
+      .gallery-slider {
+        height: 350px; /* Bigger on mobile */
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .gallery {
+        height: 350px;
+        padding-bottom: var(--spacing-lg); /* Add bottom padding */
+      }
+
+      .social-icons {
+        gap: 30px; /* Reduce gap on mobile */
+      }
+
+      .social-icons img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    
+    @media (max-width: 480px) { 
+      .hero h1.logo { 
+        font-size: clamp(2.5rem, 12vw, 5rem); 
+      } 
+      
+      section { 
+        padding: 30px 15px; 
+      }
+
+      .gallery-slider {
+        height: 300px;
+      }
+
+      .gallery {
+        height: 300px;
+        padding-bottom: var(--spacing-lg); /* Add bottom padding */
+      }
+
+      .slider-controls {
+        padding: 0 5px;
+      }
+    }
+    
+    @media (max-width: 360px) { 
+      .hero h1.logo { 
+        font-size: clamp(2rem, 14vw, 4rem); 
+      }
+
+      .social-icons {
+        gap: 20px;
+      }
+
+      .social-icons img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    /* ===================== PERFORMANCE & ACCESSIBILITY ===================== */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .about {
+        background: rgba(0,0,0,0.95);
+        border: 2px solid #fff;
+      }
+      
+      .slider-controls button {
+        background: rgba(255,255,255,0.9);
+        color: #000;
+      }
+    }
+
+    /* Focus styles for keyboard navigation */
+    .slider-controls button:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video autoplay muted loop playsinline id="bg-video" aria-hidden="true">
+    <source src="assets/35.mp4" type="video/mp4">
+    <!-- Fallback for older browsers -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="scroll-overlay"></div>
+    <div class="hero-container">
+      <h1 class="logo">Sofi Vesta</h1>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about content-block fade-in">
+    <p>
+      Starting as a violinist in St.Petersburg, Russia, she soon gravitated to the city's underground clubs and forest raves, where her passion for electronic music ignited. After moving to China, she honed a signature sound blending tribal and ethnic house before mastering her sound in beach club residencies in Thailand. 
+    </p>
+    <br>
+    <p>
+      Promo images and videos can be downloaded <a href="https://drive.google.com/drive/folders/1aH8p5UeBWieO1MT_mLEdEYDsrIOKv9Yh?usp=drive_link" target="_blank" rel="noopener noreferrer">here</a>.
+    </p>
+  </section>
+
+  <!-- RESIDENCIES -->
+  <section class="about residencies content-block fade-in">
+    <h2>Residencies</h2>
+    <ul>
+      <li>
+        <span class="venue">Sea See Beach Club, Hainan, China</span>
+        <span class="dates">2021 - 2022</span>
+      </li>
+      <li>
+        <span class="venue">Zippy Beach Club, Phuket, Thailand</span>
+        <span class="dates">2022 - 2023</span>
+      </li>
+      <li>
+        <span class="venue">Kyma Beach Club, Phuket, Thailand</span>
+        <span class="dates">2023 - 2025</span>
+      </li>
+      <li>
+        <span class="venue">Smigo Beach Club, Phuket, Thailand</span>
+        <span class="dates">2024 - 2025</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="music content-block">
+    <div class="player-wrapper soundcloud slide-left">
+      <iframe 
+        width="100%" 
+        height="166" 
+        scrolling="no" 
+        frameborder="no" 
+        allow="autoplay" 
+        loading="lazy"
+        title="Sofi Vesta SoundCloud Player"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1170403960&color=%23c8bc9c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+      </iframe>
+    </div>
+    
+    <!-- Mixcloud Playlist/Profile Player -->
+    <div class="player-wrapper mixcloud slide-right">
+      <iframe 
+        tabindex="-1" 
+        width="100%" 
+        height="400" 
+        loading="lazy"
+        title="Sofi Vesta Mixcloud Playlist"
+        src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2FSofiVesta%2Fplaylists%2Fmixes%2F"  
+        allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram content-block zoom-in">
+    <div class="instagram-wrapper">
+      <blockquote class="instagram-media" 
+        data-instgrm-captioned 
+        data-instgrm-permalink="https://www.instagram.com/reel/DOhfHxqCF5G/?utm_source=ig_embed&amp;utm_campaign=loading" 
+        data-instgrm-version="14">
+      </blockquote>
+      <script async src="//www.instagram.com/embed.js"></script>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery content-block zoom-in">
+    <div class="gallery-slider" role="region" aria-label="Photo gallery">
+      <div class="slide active">
+        <img src="assets/IMG_4359.JPG" alt="Sofi Vesta performing at Zippy club" loading="lazy">
+      </div>
+      <div class="slide">
+        <img src="assets/IMG_4652.JPG" alt="Sofi Vesta DJ at Smigo's Phuket" loading="lazy">
+      </div>
+      <div class="slide">
+        <img src="assets/IMG_5992.JPG" alt="Sofi Vesta live at Kyma, Phuket" loading="lazy">
+      </div>
+      <div class="slide">
+        <img src="assets/IMG_7530.JPG" alt="Sofi Vesta at the castle" loading="lazy">
+      </div>
+      <div class="slide">
+        <img src="assets/IMG_7638.JPG" alt="Sofi Vesta at boat party China" loading="lazy">
+      </div>
+      <div class="slide">
+        <img src="assets/D15740A6-5FFA-4D86-9CC2-EB7239493BE9.JPG" alt="Sofi Vesta event photo" loading="lazy">
+      </div>
+
+      <div class="slider-controls">
+        <button id="prev" aria-label="Previous image">&#10094;</button>
+        <button id="next" aria-label="Next image">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Force scroll to top on page load/refresh
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    
+    // Immediate scroll to top
+    window.scrollTo(0, 0);
+    
+    // Also ensure it happens after DOM is fully loaded
+    window.addEventListener('beforeunload', () => {
+      window.scrollTo(0, 0);
+    });
+    
+    // Additional backup - force scroll after everything loads
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+
+    // Performance optimization: Use RAF for smooth animations
+    let rafId;
+    
+    // GALLERY SLIDER
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    // Touch handling with better performance
+    let startX = 0;
+    let isDragging = false;
+    const slider = document.querySelector('.gallery-slider');
+
+    // Navigation controls
+    document.getElementById('prev').addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    });
+
+    // Auto-advance with pause on interaction
+    let autoSlideInterval = setInterval(() => {
+      if (!isDragging) {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }
+    }, 5000);
+
+    // Enhanced touch support
+    slider.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      clearInterval(autoSlideInterval);
+    });
+
+    slider.addEventListener('touchmove', e => {
+      // Prevent default to avoid scrolling issues
+      if (Math.abs(e.touches[0].clientX - startX) > 10) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    slider.addEventListener('touchend', e => {
+      const diffX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diffX) > 50) {
+        currentSlide = (diffX > 0) ? 
+          (currentSlide - 1 + totalSlides) % totalSlides : 
+          (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }
+      
+      // Restart auto-advance
+      setTimeout(() => {
+        isDragging = false;
+        autoSlideInterval = setInterval(() => {
+          if (!isDragging) {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+          }
+        }, 5000);
+      }, 1000);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+      } else if (e.key === 'ArrowRight') {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }
+    });
+
+    showSlide(currentSlide);
+
+    // SCROLL ANIMATIONS - Optimized with RAF
+    const scrollElems = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .zoom-in');
+    const observerOptions = { 
+      threshold: 0.1,
+      rootMargin: '50px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    scrollElems.forEach(el => observer.observe(el));
+
+    // SCROLL OVERLAY - Throttled for performance
+    let ticking = false;
+    
+    function updateScrollOverlay() {
+      const overlay = document.querySelector('.scroll-overlay');
+      const scrollTop = window.scrollY;
+      const maxScroll = window.innerHeight;
+      const opacity = Math.min(scrollTop / maxScroll, 0.8);
+      
+      if (rafId) cancelAnimationFrame(rafId);
+      
+      rafId = requestAnimationFrame(() => {
+        overlay.style.background = `rgba(0,0,0,${opacity})`;
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        updateScrollOverlay();
+      }
+    }, { passive: true });
+
+    // Pause video when not visible (battery saving)
+    const video = document.getElementById('bg-video');
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {}); // Silently handle autoplay restrictions
+        } else {
+          video.pause();
+        }
+      });
+    });
+    
+    videoObserver.observe(video);
+  </script>
+
+</body>
+</html>
